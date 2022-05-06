@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(CMAKE_STATIC_LIB_VERSION 2.1.3)
+set(CMAKE_STATIC_LIB_VERSION 2.2.0)
 
 project(CMakeStaticLib
 	VERSION ${CMAKE_STATIC_LIB_VERSION}
