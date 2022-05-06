@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(CMAKE_STATIC_LIB_VERSION 2.1.1)
+set(CMAKE_STATIC_LIB_VERSION 2.1.3)
 
 project(CMakeStaticLib
 	VERSION ${CMAKE_STATIC_LIB_VERSION}
@@ -27,22 +27,22 @@ target_include_directories(CMakeStaticLib
 		$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 configure_package_config_file(cmake/config.cmake.in
-	${CMAKE_CURRENT_BINARY_DIR}/CMakeStaticLib-config.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config.cmake
 	INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake-static-lib
 	NO_SET_AND_CHECK_MACRO)
 write_basic_package_version_file(
-	${CMAKE_CURRENT_BINARY_DIR}/CMakeStaticLib-config-version.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config-version.cmake
 	VERSION ${CMAKE_STATIC_LIB_VERSION}
 	COMPATIBILITY SameMajorVersion)
 install(
 	FILES
-		${CMAKE_CURRENT_BINARY_DIR}/CMakeStaticLib-config.cmake
-		${CMAKE_CURRENT_BINARY_DIR}/CMakeStaticLib-config-version.cmake
+		${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config.cmake
+		${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config-version.cmake
 	DESTINATION
 		${CMAKE_INSTALL_DATADIR}/cmake-static-lib)
 
-install(TARGETS CMakeStaticLib EXPORT CMakeStaticLib-targets)
+install(TARGETS CMakeStaticLib EXPORT cmake-static-lib-targets)
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(EXPORT CMakeStaticLib-targets
+install(EXPORT cmake-static-lib-targets
 	NAMESPACE CMakeStaticLib::
 	DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake-static-lib)
