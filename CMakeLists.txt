@@ -7,7 +7,7 @@ project(CMakeStaticLib
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
 
-add_library(CMakeStaticLib src/CMakeStaticLib.cpp include/CMakeStaticLib.h)
+add_library(CMakeStaticLib src/CMakeStaticLib.cpp)
 add_library(CMakeStaticLib::CMakeStaticLib ALIAS CMakeStaticLib)
 
 if(BUILD_SHARED_LIBS AND WIN32)
