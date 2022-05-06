@@ -1,11 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
-set(CMAKE_STATIC_LIB_VERSION 2.2.0)
-
 project(CMakeStaticLib
-	VERSION ${CMAKE_STATIC_LIB_VERSION}
 	DESCRIPTION "A simple cmake static library"
-	HOMEPAGE_URL "https://github.com/northwindtraders/beicode"
 	LANGUAGES CXX)
 
 include(CMakePackageConfigHelpers)
@@ -30,14 +26,9 @@ configure_package_config_file(cmake/config.cmake.in
 	${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config.cmake
 	INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake-static-lib
 	NO_SET_AND_CHECK_MACRO)
-write_basic_package_version_file(
-	${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config-version.cmake
-	VERSION ${CMAKE_STATIC_LIB_VERSION}
-	COMPATIBILITY SameMajorVersion)
 install(
 	FILES
 		${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config.cmake
-		${CMAKE_CURRENT_BINARY_DIR}/cmake-static-lib-config-version.cmake
 	DESTINATION
 		${CMAKE_INSTALL_DATADIR}/cmake-static-lib)
 
